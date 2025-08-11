@@ -1,7 +1,7 @@
 import express from 'express';
 import cors from 'cors';
 import pino from 'pino-http';
-import { getAllContacts, getContactById } from './services/contacts.js';
+import contactsRouter from './routers/contacts.js';
 
 import { getEnvVar } from './utils/getEnvVar.js';
 const PORT = Number(getEnvVar('PORT', '3000'));
@@ -15,33 +15,7 @@ export function setupServer() {
 
   app.use(pino({ transport: { target: 'pino-pretty' } }));
 
-  app.get('/contacts', async (req, res) => {
-    const contacts = await getAllContacts();
-
-    res.json({
-      status: 200,
-      message: 'Successfully found contacts!',
-      data: contacts,
-    });
-  });
-
-  app.get('/contacts/:contactId', async (req, res) => {
-    const { contactId } = req.params;
-    const contact = await getContactById(contactId);
-
-    if (!contact) {
-      res.status(404).json({
-        message: 'Contact not found',
-      });
-      return;
-    }
-
-    res.json({
-      status: 200,
-      message: 'Successfully found contacts!',
-      data: contact,
-    });
-  });
+  app.use(contactsRouter);
 
   app.use((req, res, next) => {
     res.status(404).json({
