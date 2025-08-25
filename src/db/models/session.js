@@ -1,4 +1,4 @@
-const { Schema, model } = require('mongoose');
+import { Schema, model } from 'mongoose';
 
 const sessionsSchema = new Schema(
   {
@@ -11,4 +11,4 @@ const sessionsSchema = new Schema(
   { versionKey: false },
 );
 
-export const UserCollection = model('sessions', sessionsSchema);
+export const SessionsCollection = model('sessions', sessionsSchema);
