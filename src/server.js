@@ -2,6 +2,7 @@ import express from 'express';
 import cors from 'cors';
 import pino from 'pino-http';
 import router from './routers/index.js';
+import cookieParser from 'cookie-parser';
 import { getEnvVar } from './utils/getEnvVar.js';
 import { notFoundHandler } from './middlewares/notFoundHandler.js';
 import { errorHandler } from './middlewares/errorHandler.js';
@@ -18,6 +19,8 @@ export function setupServer() {
   );
 
   app.use(cors());
+
+  app.use(cookieParser());
 
   app.use(pino({ transport: { target: 'pino-pretty' } }));
 
