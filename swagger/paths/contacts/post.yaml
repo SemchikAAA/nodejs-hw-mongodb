@@ -34,10 +34,6 @@ requestBody:
             description: 'Contact type. One of three: "work", "home" or "personal"'
             type: string
             enum: ['work', 'home', 'personal']
-          userId:
-            description: 'User ID that owns the contact'
-            type: string
-            example: 68b70d97baa33efd58909851
           photo:
             description: "Link to student's photo"
             type: string
