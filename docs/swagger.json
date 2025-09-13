@@ -141,11 +141,6 @@
                       "personal"
                     ]
                   },
-                  "userId": {
-                    "description": "User ID that owns the contact",
-                    "type": "string",
-                    "example": "68b70d97baa33efd58909851"
-                  },
                   "photo": {
                     "description": "Link to student's photo",
                     "type": "string",
@@ -275,11 +270,6 @@
                       "home",
                       "personal"
                     ]
-                  },
-                  "userId": {
-                    "description": "User ID that owns the contact",
-                    "type": "string",
-                    "example": "68b70d97baa33efd58909851"
                   },
                   "photo": {
                     "description": "Link to student's photo",
