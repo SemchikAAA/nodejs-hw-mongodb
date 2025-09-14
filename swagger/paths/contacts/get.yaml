@@ -22,11 +22,6 @@ parameters:
       type: string
       example: 'name'
   - in: query
-    name: isFavorite
-    schema:
-      type: string
-      example: true
-  - in: query
     name: sortOrder
     schema:
       type: string
@@ -37,7 +32,7 @@ parameters:
     schema:
       type: string
       enum: ['work', 'home', 'personal']
-      example: male
+      example: 'personal'
 responses:
   '200':
     description: Successfully found contacts!

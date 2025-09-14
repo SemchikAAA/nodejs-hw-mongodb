@@ -112,11 +112,6 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "_id": {
-                    "description": "Contact's id",
-                    "type": "string",
-                    "example": "68b70d97baa33efd58909851"
-                  },
                   "name": {
                     "description": "Contact's name",
                     "type": "string",
@@ -144,7 +139,7 @@
                   "photo": {
                     "description": "Link to student's photo",
                     "type": "string",
-                    "example": "https://res.cloudinary.com/uqwgdu/image/upload/image.png"
+                    "format": "binary"
                   }
                 }
               }
@@ -242,11 +237,6 @@
                   "phoneNumber"
                 ],
                 "properties": {
-                  "_id": {
-                    "description": "Contact's id",
-                    "type": "string",
-                    "example": "68b70d97baa33efd58909851"
-                  },
                   "name": {
                     "description": "Contact's name",
                     "type": "string",
@@ -260,7 +250,7 @@
                   "isFavorite": {
                     "description": "Whether the contact is a favorite",
                     "type": "boolean",
-                    "example": true
+                    "default": false
                   },
                   "contactType": {
                     "description": "Contact type. One of three: \"work\", \"home\" or \"personal\"",
@@ -269,12 +259,13 @@
                       "work",
                       "home",
                       "personal"
-                    ]
+                    ],
+                    "default": "personal"
                   },
                   "photo": {
                     "description": "Link to student's photo",
                     "type": "string",
-                    "example": "https://res.cloudinary.com/uqwgdu/image/upload/image.png"
+                    "format": "binary"
                   }
                 }
               }
@@ -355,14 +346,6 @@
           },
           {
             "in": "query",
-            "name": "isFavorite",
-            "schema": {
-              "type": "string",
-              "example": true
-            }
-          },
-          {
-            "in": "query",
             "name": "sortOrder",
             "schema": {
               "type": "string",
@@ -383,7 +366,7 @@
                 "home",
                 "personal"
               ],
-              "example": "male"
+              "example": "personal"
             }
           }
         ],
@@ -475,12 +458,8 @@
       "contact": {
         "type": "object",
         "required": [
-          "_id",
           "name",
-          "phoneNumber",
-          "isFavorite",
-          "contactType",
-          "userId"
+          "phoneNumber"
         ],
         "properties": {
           "_id": {
@@ -511,11 +490,6 @@
               "home",
               "personal"
             ]
-          },
-          "userId": {
-            "description": "User ID that owns the contact",
-            "type": "string",
-            "example": "68b70d97baa33efd58909851"
           },
           "photo": {
             "description": "Link to student's photo",
